@@ -20,7 +20,7 @@ PIXI.loader.add("./image/texture.png").add("./image/texture2.png")
 
 container.pivot.x = container.width / 2;
 container.pivot.y = container.height / 2;
-container.position.set(226, slime.height + 10);
+container.position.set(226, 226);
 
 container.interactive = true;
 container.buttonMode = true;
@@ -36,3 +36,5 @@ container.on('pointertap', function(){
 app.ticker.add(function(delta){
     container.rotation -= 0.01 * delta;
 })
+
+console.write(slime.width);
