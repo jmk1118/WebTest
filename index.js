@@ -36,5 +36,3 @@ container.on('pointertap', function(){
 app.ticker.add(function(delta){
     container.rotation -= 0.01 * delta;
 })
-
-console.write(slime.width);
