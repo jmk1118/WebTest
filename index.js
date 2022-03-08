@@ -1,0 +1,1 @@
+document.write("Java Script 설정");
