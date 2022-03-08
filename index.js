@@ -29,9 +29,9 @@ var touch = true;
 container.on('pointertap', function(){
     touch = !touch;
     if(touch)
-        slime.texture = PIXI.loader.resources['./texture2.png'].texture;
+        slime.texture = PIXI.loader.resources['./image/texture2.png'].texture;
     else
-        slime.texture = PIXI.loader.resources['./texture.png'].texture;
+        slime.texture = PIXI.loader.resources['./image/texture.png'].texture;
 })
 app.ticker.add(function(delta){
     container.rotation -= 0.01 * delta;
