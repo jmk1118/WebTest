@@ -20,7 +20,7 @@ PIXI.loader.add("./image/texture.png").add("./image/texture2.png")
 
 container.pivot.x = container.width / 2;
 container.pivot.y = container.height / 2;
-container.position.set(50, 50);
+container.position.set(slime.width + 10, slime.height + 10);
 
 container.interactive = true;
 container.buttonMode = true;
