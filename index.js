@@ -18,9 +18,9 @@ PIXI.loader.add("./image/texture.png").add("./image/texture2.png")
     
 });
 
-container.position.set(pagewidth/2 - 10, pageheight/2 - 10);
 container.pivot.x = container.width / 2;
 container.pivot.y = container.height / 2;
+container.position.set(20, 20);
 
 container.interactive = true;
 container.buttonMode = true;
