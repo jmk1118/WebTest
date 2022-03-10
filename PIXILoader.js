@@ -1,9 +1,7 @@
 import {Queue} from './DataStructure.js';
 
 export class PIXILoader{
-
-    queueURL = new Queue();
-    queueCallBack = new Queue();
+    queue = new Queue();
 
     /**
      * @static
@@ -24,8 +22,7 @@ export class PIXILoader{
      */
     load(url, callback)
     {
-        this.queueURL.Enqueue(url);
-        this.queueCallBack.Enqueue(callback);
+        this.queue.Enqueue({URL: url, CB: callback});
 
         if (!PIXI.loader.loading)
         {
@@ -38,9 +35,11 @@ export class PIXILoader{
      */
     loadResource()
     {
-        while(this.queueURL.size() > 0)
+        let next;
+        while(this.queue.size() > 0)
         {
-            PIXI.loader.add(this.queueURL.Dequeue()).load(this.queueCallBack.Dequeue());
+            next = this.queue.Dequeue();
+            PIXI.loader.add(next.URL).load(next.CB);
         }
     }
 }
