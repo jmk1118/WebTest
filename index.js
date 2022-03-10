@@ -26,7 +26,7 @@ container.interactive = true;
 container.buttonMode = true;
 
 var touch = true;
-var topMenu = new MenuBar();
+var topMenu = new MenuBar(app);
 container.on('pointertap', function(){
     touch = !touch;
     if(touch)

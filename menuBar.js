@@ -1,5 +1,5 @@
 class MenuBar{
-    menuBar(app){
+    constructor(app){
         var container = new PIXI.Container();
         app.stage.addChild(container);
     
