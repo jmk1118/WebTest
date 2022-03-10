@@ -19,9 +19,7 @@ PIXILoader.getInstance().load("./image/texture.png", () => {
     slime.anchor.set(0.5);
     container.addChild(slime);
    
-    
     container.position.set(226, 226);
-
     container.interactive = true;
     container.buttonMode = true;
 

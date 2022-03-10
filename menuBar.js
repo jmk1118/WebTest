@@ -4,7 +4,7 @@ export class MenuBar{
     constructor(){
         this.container = new PIXI.Container();
     
-        PIXILoader.getInstance().load("./image/texture2.png", () =>{
+        PIXILoader.getInstance().load("./image/texture2.png", () => {
             this.topMenu = new PIXI.Sprite(PIXI.loader.resources["./image/texture2.png"].texture);
             this.container.addChild(this.topMenu);
             this.container.pivot.x = this.container.width / 2;

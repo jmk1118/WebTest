@@ -2,7 +2,8 @@ import {Queue} from './DataStructure.js';
 
 export class PIXILoader{
     queue = new Queue();
-
+    nowLoading = false;
+    
     /**
      * @static
      * @returns {PIXILoader} PIXILoader 싱글턴 인스턴스 
@@ -23,11 +24,8 @@ export class PIXILoader{
     load(url, callback)
     {
         this.queue.Enqueue({URL: url, CB: callback});
-
-        if (!PIXI.loader.loading)
-        {
-            this.loadResource();
-        }
+        console.log("load: " + url);
+        this.loadResource();
     }
 
     /**
@@ -35,11 +33,16 @@ export class PIXILoader{
      */
     loadResource()
     {
-        let next;
-        while(this.queue.size() > 0)
+        if(this.queue.size() < 1 || this.nowLoading)
         {
-            next = this.queue.Dequeue();
-            PIXI.loader.add(next.URL).load(next.CB);
+            return;
         }
+        
+        this.nowLoading = true;
+        let next = this.queue.Dequeue();
+        
+        PIXI.loader.add(next.URL).load(next.CB)
+        .load(() => {this.nowLoading = false})
+        .load(() => {this.loadResource()});
     }
 }
