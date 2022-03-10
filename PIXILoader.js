@@ -24,7 +24,6 @@ export class PIXILoader{
     load(url, callback)
     {
         this.queue.Enqueue({URL: url, CB: callback});
-        console.log("load: " + url);
         this.loadResource();
     }
 
