@@ -1,4 +1,4 @@
-class MenuBar{
+export class MenuBar{
     constructor(app){
         var container = new PIXI.Container();
         app.stage.addChild(container);

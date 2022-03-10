@@ -1,3 +1,5 @@
+import { MenuBar } from "./menuBar";
+
 var pagewidth = window.innerWidth;
 var pageheight = window.innerHeight;
 
