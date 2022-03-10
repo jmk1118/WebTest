@@ -1,4 +1,5 @@
 import { MenuBar } from "./menuBar.js";
+import { PIXILoader } from "./PIXILoader.js";
 
 var pagewidth = window.innerWidth;
 var pageheight = window.innerHeight;
@@ -7,16 +8,14 @@ var app = new PIXI.Application({width: pagewidth - 20, height: pageheight - 20, 
 document.body.appendChild(app.view); // Canvas를 DOM에 추가
 
 var container = new PIXI.Container();
-app.stage.addChild(container);
 container.pivot.x = container.width / 2;
 container.pivot.y = container.height / 2;
+app.stage.addChild(container);
 
-var slime;
-PIXI.loader.add("./image/texture.png")
-.load(()=> { // 이미지를 load한 후 불러올 콜백 함수
-    console.log('load complete');
+PIXILoader.getInstance().load("./image/texture.png", () => {
+    console.log('texture load complete');
     
-    slime = new PIXI.Sprite(PIXI.loader.resources["./image/texture.png"].texture);
+    var slime = new PIXI.Sprite(PIXI.loader.resources["./image/texture.png"].texture);
     slime.anchor.set(0.5);
     container.addChild(slime);
    
@@ -27,20 +26,19 @@ PIXI.loader.add("./image/texture.png")
     container.buttonMode = true;
 
     var touch = true;
-    var topMenu = new MenuBar();
-    app.stage.addChild(topMenu.getContainer());
+    var menuBar = new MenuBar();
+    app.stage.addChild(menuBar.getContainer());
     container.on('pointertap', function(){
         touch = !touch;
         if(touch)
         {
             //slime.texture = PIXI.loader.resources['./image/texture2.png'].texture;
-            console.log(topMenu);
-            topMenu.getContainer().visible = true;
+            menuBar.getContainer().visible = true;
         }
         else
         {
             //slime.texture = PIXI.loader.resources['./image/texture.png'].texture;
-            topMenu.getContainer().visible = false;
+            menuBar.getContainer().visible = false;
         }
     })
     app.ticker.add(function(delta){
