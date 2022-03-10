@@ -1,19 +1,22 @@
 export class MenuBar{
-    constructor(app){
-        var container = new PIXI.Container();
-        app.stage.addChild(container);
+    constructor(){
+        this.container = new PIXI.Container();
     
-        var topMenu = new PIXI.Sprite(PIXI.loader.resources["./image/texture2.png"].texture);
-        container.addChild(topMenu);
-        container.pivot.x = container.width / 2;
-        container.pivot.y = container.height / 2;
-        container.position.set(526, 226);
-    
-        container.visible = false;
+        PIXI.loader.add("./image/texture2.png")
+        .load(()=> {
+            this.topMenu = new PIXI.Sprite(PIXI.loader.resources["./image/texture2.png"].texture);
+            this.container.addChild(this.topMenu);
+            this.container.pivot.x = this.container.width / 2;
+            this.container.pivot.y = this.container.height / 2;
+            this.container.position.set(626, 226);
+        
+            this.container.visible = true;
+        });
+        
     }
     
     getContainer()
     {
-        return container;
+        return this.container;
     }
 }

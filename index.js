@@ -1,4 +1,4 @@
-import { MenuBar } from "./menuBar";
+import { MenuBar } from "./menuBar.js";
 
 var pagewidth = window.innerWidth;
 var pageheight = window.innerHeight;
@@ -8,40 +8,42 @@ document.body.appendChild(app.view); // Canvas를 DOM에 추가
 
 var container = new PIXI.Container();
 app.stage.addChild(container);
+container.pivot.x = container.width / 2;
+container.pivot.y = container.height / 2;
 
 var slime;
-PIXI.loader.add("./image/texture.png").add("./image/texture2.png")
+PIXI.loader.add("./image/texture.png")
 .load(()=> { // 이미지를 load한 후 불러올 콜백 함수
     console.log('load complete');
     
     slime = new PIXI.Sprite(PIXI.loader.resources["./image/texture.png"].texture);
     slime.anchor.set(0.5);
     container.addChild(slime);
+   
     
+    container.position.set(226, 226);
+
+    container.interactive = true;
+    container.buttonMode = true;
+
+    var touch = true;
+    var topMenu = new MenuBar();
+    app.stage.addChild(topMenu.getContainer());
+    container.on('pointertap', function(){
+        touch = !touch;
+        if(touch)
+        {
+            //slime.texture = PIXI.loader.resources['./image/texture2.png'].texture;
+            console.log(topMenu);
+            topMenu.getContainer().visible = true;
+        }
+        else
+        {
+            //slime.texture = PIXI.loader.resources['./image/texture.png'].texture;
+            topMenu.getContainer().visible = false;
+        }
+    })
+    app.ticker.add(function(delta){
+        container.rotation -= 0.01 * delta;
+    })
 });
-
-container.pivot.x = container.width / 2;
-container.pivot.y = container.height / 2;
-container.position.set(226, 226);
-
-container.interactive = true;
-container.buttonMode = true;
-
-var touch = true;
-var topMenu = new MenuBar(app);
-container.on('pointertap', function(){
-    touch = !touch;
-    if(touch)
-    {
-        //slime.texture = PIXI.loader.resources['./image/texture2.png'].texture;
-        topMenu.getContainer().visible = true;
-    }
-    else
-    {
-        //slime.texture = PIXI.loader.resources['./image/texture.png'].texture;
-        topMenu.getContainer().visible = false;
-    }
-})
-app.ticker.add(function(delta){
-    container.rotation -= 0.01 * delta;
-})
