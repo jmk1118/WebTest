@@ -26,12 +26,19 @@ container.interactive = true;
 container.buttonMode = true;
 
 var touch = true;
+var topMenu = new menuBar();
 container.on('pointertap', function(){
     touch = !touch;
     if(touch)
-        slime.texture = PIXI.loader.resources['./image/texture2.png'].texture;
+    {
+        //slime.texture = PIXI.loader.resources['./image/texture2.png'].texture;
+        topMenu.getContainer().visible = true;
+    }
     else
-        slime.texture = PIXI.loader.resources['./image/texture.png'].texture;
+    {
+        //slime.texture = PIXI.loader.resources['./image/texture.png'].texture;
+        topMenu.getContainer().visible = false;
+    }
 })
 app.ticker.add(function(delta){
     container.rotation -= 0.01 * delta;
