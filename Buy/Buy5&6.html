@@ -4,31 +4,55 @@
         <title>5,6티어 선박 재료 구매처</title> <!-- title -->
         <meta charset="utf-8">
         <style>
+            a{
+                color: black;
+            }
             h1 {
                 font-size: 60px;
                 text-align: center;
                 color:black;
+                border-bottom: 3px solid black;
+                padding: 20px;
+                margin: 0px;
             }
-            .지중해 {
-                color: red;
+            ol {
+                border-right: 3px solid black;
+                width: 300px;
+                padding: 30px;
+                padding-top: 0px;
+                padding-right: 0px;
+                margin: 0px;
             }
-            .카리브해 {
-                color: blue;
+            body {
+                margin: 5px;
             }
-            #main {
-                color: green;
+            .Body {
+                display: grid;
+                grid-template-columns: 350px 1fr;
             }
         </style>
     </head>
     <body>
         <h1>5,6티어 선박 재료 구매처</h1>
-            <h2>지중해</h2>
-                <label class="지중해" id="main"><input type="checkbox">리스보아</label>
-            <h2>카리브해</h2>
-                <label class="카리브해" id="main"><input type="checkbox">산토도밍고</label>
-                <label class="카리브해"><input type="checkbox">포트로열</label>
-            <h2>아프리카</h2>
-            <label><input type="checkbox" id="아프리카">아비장</label>
-            <label><input type="checkbox" id="아프리카">루안다</label>
+        <div class="Body">
+            <ol>
+                <h2><li>
+                    <a href="Buy/Buy5&6.html">5,6티어 선박 재료 구매처</a>
+                </li></h2>
+                <h2><li>
+                    <a href="Buy/BuyOver1000.html">1000두캇 이상 물품</a>
+                </li></h2>
+            </ol>
+            <div class="MainText">
+                <h2>지중해</h2>
+                    <label class="지중해" id="main"><input type="checkbox">리스보아</label>
+                <h2>카리브해</h2>
+                    <label class="카리브해" id="main"><input type="checkbox">산토도밍고</label>
+                    <label class="카리브해"><input type="checkbox">포트로열</label>
+                <h2>아프리카</h2>
+                <label><input type="checkbox" id="아프리카">아비장</label>
+                <label><input type="checkbox" id="아프리카">루안다</label>
+            </div>
+        </div>
     </body>
 </html>
