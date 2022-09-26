@@ -1,0 +1,21 @@
+a{
+    color: black;
+}
+h1 {
+    font-size: 60px;
+    text-align: center;
+    color:black;
+    border-bottom: 3px solid black;
+    padding: 20px;
+    margin: 0px;
+}
+ol {
+    border-right: 3px solid black;
+    width: 300px;
+    padding: 30px;
+    padding-right: 0px;
+    margin: 0px;
+}
+body {
+    margin: 5px;
+}
