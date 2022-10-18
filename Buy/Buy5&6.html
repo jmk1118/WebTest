@@ -51,7 +51,14 @@
     </body>
 </html>
 <script>
+    var infoPopup = null;
     function onClickInfo(){
-        window.open("../Info/info.html", "Info", "width=400, height=300");
+        if(infoPopup){
+            infoPopup.close();
+            infoPopup = null;
+        }
+        else{
+            infoPopup = window.open("Info/info.html", "Info", "width=400, height=300");
+        }
     }
 </script>
