@@ -4,6 +4,7 @@
         <title>대항해시대 오리진</title> <!-- title -->
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css">
+        <script src="scripts/main.js"></script>
     </head>
     <body>
         <header>
@@ -36,15 +37,3 @@
         ">
     </body>
 </html>
-<script>
-    var infoPopup = null;
-    function onClickInfo(){
-        if(infoPopup){
-            infoPopup.close();
-            infoPopup = null;
-        }
-        else{
-            infoPopup = window.open("Info/info.html", "Info", "width=400, height=300");
-        }
-    }
-</script>
