@@ -3,7 +3,6 @@ function onClickInfo(){
 
     $.ajax({
         method: "GET",
-        type: "GET",
         url: 'https://public.api.nexon.com/openapi/maplestory/v1/cube-use-results',
         data: {
             count: 100,
@@ -15,5 +14,7 @@ function onClickInfo(){
         },
     }).done(function(msg){
         console.log(msg);
+    }).fail((err)=>{
+        console.log(err);
     });
 }
